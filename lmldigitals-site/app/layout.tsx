@@ -24,7 +24,15 @@
 // app/layout.tsx
 
 import "./globals.css";
-import Navbar from '../app/components/Navbar/page';
+import Navbar from '../components/Navbar/page';
+import Home from '../components/Home/page';
+
+
+export const metadata = {
+  title: 'LML Digitals',
+  description: 'Company website!',
+  // Add other metadata as needed
+}
 
 export default function RootLayout({
   children,
@@ -37,6 +45,13 @@ export default function RootLayout({
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow">{children}</main>
+          <Home
+            imageUrl="./homeimg.jpg"
+            altText="Description of your image"
+            text="Seamless Integration of Software and Digital Branding"
+            textParagraph="Where innovation meets precision in software and digital branding services. We specialize in crafting bespoke solutions that elevate your digital presence and drive impactful results. With a blend of cutting-edge technology and creative expertise, we transform ideas into tangible success stories. Whether you're a startup aiming to disrupt the market or an established brand seeking a digital makeover, LML Digitals is your trusted partner. Discover how we can empower your journey to digital excellence."
+            advertisingParagraph= "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime ipsam ea quae voluptatibus quod officia natus voluptate expedita totam necessitatibus dolorem ab, porro error nobis vitae, nemo minima rerum. Cupiditate."
+          />
         </div>
       </body>
     </html>
