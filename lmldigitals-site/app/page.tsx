@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div>
       <Head>
-        <title>Home - My Website</title>
+        <title>LML Digitals</title>
         <meta name="description" content="Home page description" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

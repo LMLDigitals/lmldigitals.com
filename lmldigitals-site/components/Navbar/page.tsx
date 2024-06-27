@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, ChevronDown } from 'react-feather'; // Add ChevronDown import
 import { Button } from '@/components/ui/button';
+import Services from '@/app/pages/services';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +34,7 @@ const Navbar = () => {
           <Link href="/" className="text-black hover:bg-gray-200 px-3 py-2 rounded-md text-base font-medium">
             Home
           </Link>
+          <Link href="/services" className="text-black hover:bg-gray-200 px-3 py-2 rounded-md text-base font-medium"> Services</Link>
           <Link href="/about" className="text-black hover:bg-gray-200 px-3 py-2 rounded-md text-base font-medium">
             About Us
           </Link>
