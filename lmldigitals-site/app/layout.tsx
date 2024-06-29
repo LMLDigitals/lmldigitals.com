@@ -26,8 +26,8 @@ export default function RootLayout({
   const projectArray = projectString.split(',');
 
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className="scroll-smooth">
+      <body className="bg-slate-100">
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow">{children}</main>

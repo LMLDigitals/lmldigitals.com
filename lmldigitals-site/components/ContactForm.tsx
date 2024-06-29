@@ -27,7 +27,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="border-yellow-500 px-4 sm:px-6 lg:px-8 m-11">
+    <div className="border-yellow-500 px-4 sm:px-6 lg:px-8 m-11" id='contactus'>
       <form className="max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6 md:p-8 lg:p-10 xl:p-12 mt-11">
         <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-6 text-center">Contact Us</h2>
         <div className="mb-6">

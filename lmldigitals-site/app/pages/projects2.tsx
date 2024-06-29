@@ -30,7 +30,7 @@ const Project2: React.FC<Project2Props> = ({ textProject, projectAltText, projec
   const secondHalf = projectList.slice(halfwayIndex);
 
   return (
-    <div className="flex flex-col md:flex-row items-center p-10 pb-6">
+    <div className="flex flex-col md:flex-row items-center p-10 pb-6 ml-10 mr-14"id='projects/project2'>
       <motion.div
         className="md:w-1/2 mt-4 md:mt-0"
         animate={{
@@ -43,7 +43,7 @@ const Project2: React.FC<Project2Props> = ({ textProject, projectAltText, projec
           repeatType: "mirror"
         }}
       >
-        <img src={projectImageUrl} alt={projectAltText} className="w-full h-auto object-contain rounded-full shadow-lg border-4 border-yellow-500 drop-shadow-lg" />
+        <img src={projectImageUrl} alt={projectAltText} className=" w-96 h-96 object-contain rounded-full shadow-lg border-4 border-yellow-500 drop-shadow-lg" />
       </motion.div>
       <div className="md:w-1/2 px-4 text-center md:text-left">
         <p className="text-4xl font-semibold font-inter">

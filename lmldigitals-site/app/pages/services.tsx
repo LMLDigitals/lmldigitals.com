@@ -2,10 +2,11 @@
 
 import Head from 'next/head';
 import Link from 'next/link';
+import Home from '../page';
 
 const Services = () => {
   return (
-    <div>
+    <div id='services' className='scroll-smooth focus:scroll-auto'>
       <Head>
         <title>Our Services</title>
       </Head>

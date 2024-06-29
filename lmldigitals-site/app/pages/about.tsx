@@ -5,9 +5,8 @@ import Link from 'next/link';
 
 const About = () => {
   return (
-    <div>
+    <div id='aboutus'>
       <Head>
-        <title>About Us - My Website</title>
         <meta name="description" content="About us page description" />
         <Link rel="icon" href="/favicon.ico" />
       </Head>

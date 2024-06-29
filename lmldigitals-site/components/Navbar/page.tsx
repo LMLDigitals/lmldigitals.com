@@ -31,11 +31,11 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className={`sm:flex space-x-4 flex-grow justify-center ${isOpen ? 'block' : 'hidden'} sm:block`}>
-          <Link href="/" className="text-black hover:bg-gray-200 px-3 py-2 rounded-md text-base font-medium">
+          <Link href="#home" className="text-black hover:bg-gray-200 px-3 py-2 rounded-md text-base font-medium">
             Home
           </Link>
-          <Link href="/services" className="text-black hover:bg-gray-200 px-3 py-2 rounded-md text-base font-medium"> Services</Link>
-          <Link href="/about" className="text-black hover:bg-gray-200 px-3 py-2 rounded-md text-base font-medium">
+          <Link href="#services" className="text-black hover:bg-gray-200 px-3 py-2 rounded-md text-base font-medium">Services</Link>
+          <Link href="#aboutus" className="text-black hover:bg-gray-200 px-3 py-2 rounded-md text-base font-medium">
             About Us
           </Link>
           <div className="relative">
@@ -47,10 +47,10 @@ const Navbar = () => {
             </button>
             {isProjectsOpen && (
               <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-                <Link href="/projects/project1" className="block px-4 py-2 text-black hover:bg-gray-100">
+                <Link href="#projects/project1" className="block px-4 py-2 text-black hover:bg-gray-100">
                   Project 1
                 </Link>
-                <Link href="/projects/project2" className="block px-4 py-2 text-black hover:bg-gray-100">
+                <Link href="#projects/project2" className="block px-4 py-2 text-black hover:bg-gray-100">
                   Project 2
                 </Link>
               </div>
@@ -65,10 +65,10 @@ const Navbar = () => {
             </button>
             {isBrandingOpen && (
               <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-                <Link href="/branding/branding1" className="block px-4 py-2 text-black hover:bg-gray-100">
+                <Link href="#branding/branding1" className="block px-4 py-2 text-black hover:bg-gray-100">
                   Branding 1
                 </Link>
-                <Link href="/branding/branding2" className="block px-4 py-2 text-black hover:bg-gray-100">
+                <Link href="#branding/branding2" className="block px-4 py-2 text-black hover:bg-gray-100">
                   Branding 2
                 </Link>
               </div>
@@ -78,7 +78,7 @@ const Navbar = () => {
 
         {/* Contact Us Button */}
         <div className="hidden sm:flex items-center">
-          <Button>Contact Us</Button>
+          <Button> <Link href="#contactus">Contact Us</Link></Button>
         </div>
       </div>
 
