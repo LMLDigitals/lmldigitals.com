@@ -4,7 +4,7 @@ import Marquee from './magicui/marquee';
 
 function ContentFive() {
    return (
-      <div className=' mt-28'>
+      <div className=' xl:mt-6 2xl:mt-28'>
          <Marquee pauseOnHover className='[--duration:20s]'>
             <ObjectPlane />
             <h1 className='text-7xl font-semibold mx-6 '>Let's talk social</h1>

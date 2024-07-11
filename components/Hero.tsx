@@ -10,17 +10,62 @@ import VideoInMockup from './VideoInMockup';
 
 function Hero() {
    return (
-      //   <Container>
-      <div className='mt-20 mx-44 flex items-center justify-center '>
-         <div className='flex  flex-col items-start gap-8 w-3/4     '>
+      <>
+         <div className='lg:mt-28  lg:mx-44 xl:mx-20 2xl:mx-44 lg:flex lg:items-center lg:justify-center hidden   transition-all'>
+            <div className='flex flex-col items-start gap-8 w-full     '>
+               <AnimatedLMLDigitalsBadge />
+               <h1 className='sm:text-4xl lg:text-4xl xl:text-5xl xl:w-full  2xl:text-6xl  2xl:w-3/4 leading-tight font-bold'>
+                  The results-driven{' '}
+                  <span className='text-red-500 '>Social first agency</span>{' '}
+                  you've been looking for
+               </h1>
+
+               <div className='flex items-center gap-2'>
+                  <Button className='h-11 w-56 transition-all hover:bg-red-500'>
+                     Browse Our Services
+                  </Button>
+                  <Button
+                     variant={'ghost'}
+                     className='hover:bg-transparent space-x-2 group'
+                  >
+                     <span>Meet our team</span>
+                     <MoveRight size={16} className='hover-move-right' />
+                  </Button>
+               </div>
+            </div>
+
+            <div className='flex items-center'>
+               <video className='xl:w-2/3 2xl:w-3/4' autoPlay loop muted>
+                  <source src={'/video2.mp4'} type='video/mp4' />
+               </video>
+               <SocialsProfiles />
+            </div>
+         </div>
+         <MediumSizeHero />
+         <MobileHeroSize />
+      </>
+   );
+}
+
+function MediumSizeHero() {
+   return (
+      <div className='hidden mt-8 sm:mx-28 sm:flex sm:flex-col sm:items-center sm:justify-center space-y-10 lg:hidden transition-all'>
+         <div className='flex items-center justify-between  '>
+            <video className='w-96' autoPlay loop muted>
+               <source src={'/video2.mp4'} type='video/mp4' />
+            </video>
+
+            <SocialsProfiles />
+         </div>
+         <div className='flex flex-col items-start gap-8'>
             <AnimatedLMLDigitalsBadge />
-            <h1 className='text-6xl w-3/4 leading-tight font-bold'>
+            <h1 className='sm:text-4xl  lg:text-4xl xl:text-5xl  2xl:text-6xl  2xl:w-3/4 leading-tight font-bold'>
                The results-driven{' '}
                <span className='text-red-500 '>Social first agency</span> you've
                been looking for
             </h1>
 
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center'>
                <Button className='h-11 w-56 transition-all hover:bg-red-500'>
                   Browse Our Services
                </Button>
@@ -33,13 +78,39 @@ function Hero() {
                </Button>
             </div>
          </div>
-         <div className='flex items-center justify-between  '>
-            <VideoInMockup />
+      </div>
+   );
+}
+function MobileHeroSize() {
+   return (
+      <div className=' mt-10 mx-2 flex flex-col items-center justify-center   sm:hidden  transition-all '>
+         <div className='flex flex-col items-center justify-center gap-8'>
+            <AnimatedLMLDigitalsBadge />
+            <h1 className='text-3xl leading-tight font-bold text-center '>
+               The results-driven{' '}
+               <span className='text-red-500 '>Social first agency</span> you've
+               been looking for
+            </h1>
 
-            <SocialsProfiles />
+            <div className='flex flex-col justify-center '>
+               <Button className='h-11 w-56 transition-all hover:bg-red-500'>
+                  Browse Our Services
+               </Button>
+               <Button
+                  variant={'ghost'}
+                  className='hover:bg-transparent space-x-2 group'
+               >
+                  <span>Meet our team</span>
+                  <MoveRight size={16} className='hover-move-right' />
+               </Button>
+            </div>
+         </div>
+         <div>
+            <video className='w-96' autoPlay loop muted>
+               <source src={'/video2.mp4'} type='video/mp4' />
+            </video>
          </div>
       </div>
-      //   </Container>
    );
 }
 

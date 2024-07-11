@@ -42,7 +42,7 @@ function BrandsTrustUs() {
       },
    ];
    return (
-      <div className='w-full py-12'>
+      <div className='w-full md:py-12'>
          <div className='mx-auto w-full px-4 md:px-8'>
             <div
                className='group relative mt-6 flex gap-6 overflow-hidden p-2'

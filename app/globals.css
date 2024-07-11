@@ -101,4 +101,12 @@
       opacity: 3;
       transform: translateX(0);
    }
+
+   .menu-icon-animation {
+      transition: transform 0.5s ease;
+   }
+
+   .menu-icon-animation:hover {
+      transform: rotate(180deg) scale(1.2);
+   }
 }

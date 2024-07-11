@@ -32,7 +32,7 @@ export default function CollapsibleBanner({ type }: any) {
       <>
          <div
             // Replace `absolute` with `fixed` if you want the banner fixed on the page. Note: Animation won't work with `absolute`.
-            className={`absolute left-0 right-0 top-0 z-50 transition-all duration-300 ease-in-out ${
+            className={`hidden sm:block absolute left-0 right-0 top-0 z-50 transition-all duration-300 ease-in-out ${
                isVisible ? 'translate-y-0' : '-translate-y-full'
             }`}
          >
