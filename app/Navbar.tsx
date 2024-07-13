@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 function Navbar() {
    const NavLink = [
-      { id: 1, title: 'Our Services', link: '/ourservices' },
+      { id: 1, title: 'Our Services', link: '/services' },
       { id: 2, title: 'About Us', link: '/about' },
       { id: 3, title: 'Blog', link: '/ourservices' },
    ];
@@ -37,9 +37,11 @@ function Navbar() {
                   </Link>
                ))}
                <CoolMode>
-                  <Button className='h-11 w-36 transition-all '>
-                     Get in Touch
-                  </Button>
+                  <Link href={'/contact'}>
+                     <Button className='h-11 w-36 transition-all '>
+                        Get in Touch
+                     </Button>
+                  </Link>
                </CoolMode>
             </ul>
          </div>

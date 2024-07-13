@@ -11,10 +11,10 @@ import VideoInMockup from './VideoInMockup';
 function Hero() {
    return (
       <>
-         <div className='lg:mt-28  lg:mx-44 xl:mx-20 2xl:mx-44 lg:flex lg:items-center lg:justify-center hidden   transition-all'>
+         <div className='lg:mt-28  lg:mx-44 xl:mx-20 2xl:mx-60 lg:flex lg:items-center lg:justify-center hidden   transition-all'>
             <div className='flex flex-col items-start gap-8 w-full     '>
                <AnimatedLMLDigitalsBadge />
-               <h1 className='sm:text-4xl lg:text-4xl xl:text-5xl xl:w-full  2xl:text-6xl  2xl:w-3/4 leading-tight font-bold'>
+               <h1 className='sm:text-4xl lg:text-4xl xl:text-5xl xl:w-full  2xl:text-6xl  2xl:w-10/12 leading-tight font-bold'>
                   The results-driven{' '}
                   <span className='text-red-500 '>Social first agency</span>{' '}
                   you've been looking for
@@ -35,7 +35,7 @@ function Hero() {
             </div>
 
             <div className='flex items-center'>
-               <video className='xl:w-2/3 2xl:w-3/4' autoPlay loop muted>
+               <video className='xl:w-2/3 2xl:w-10/12' autoPlay loop muted>
                   <source src={'/video2.mp4'} type='video/mp4' />
                </video>
                <SocialsProfiles />

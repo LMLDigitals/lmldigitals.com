@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { useState } from 'react';
 
 type BannerProps = {
@@ -40,12 +41,12 @@ export default function CollapsibleBanner({ type }: any) {
                <div className='flex items-center text-sm font-medium leading-6 text-white'>
                   <p>{`Discover how LML Digitals can elevate your online presence with tailored digital strategies and impactful campaigns.`}</p>
 
-                  <a
-                     href='#'
+                  <Link
+                     href='/contact'
                      className='ml-3 flex-none rounded-lg bg-gray-900 px-3 py-1 text-xs text-white shadow-sm hover:bg-gray-900/80'
                   >
                      Get Started
-                  </a>
+                  </Link>
                </div>
                <div className='flex flex-1 justify-end'>
                   <button

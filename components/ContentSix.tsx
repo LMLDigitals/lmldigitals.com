@@ -12,7 +12,7 @@ function ContentSix() {
             <div className='flex flex-col gap-6 items-center  xl:items-start  2xl:gap-8    lg:gap-6  justify-end  xl:h-5/6 pl-4 md:pl-10'>
                <div className='flex flex-col items-center gap-4 lg:gap-6   xl:items-start'>
                   <WordPullUp
-                     className='xl:text-5xl  font-bold tracking-[-0.02em] text-white dark:text-white text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl md:leading-[4rem]'
+                     className='xl:text-5xl  font-bold tracking-[-0.02em] text-white dark:text-white text-3xl md:text-5xl lg:text-6xl 2xl:text-6xl md:leading-[4rem]'
                      words={`Don't  be  sheepish`}
                   />
 
