@@ -7,13 +7,21 @@ function ContentFive() {
       <div className=' xl:mt-6 2xl:mt-28'>
          <Marquee pauseOnHover className='[--duration:20s]'>
             <ObjectPlane />
-            <h1 className='text-7xl font-semibold mx-6 '>Let's talk social</h1>
+            <h1 className='text-7xl font-semibold mx-6 '>
+               Let&apos;s talk social
+            </h1>
             <ObjectPlane />
-            <h1 className='text-7xl font-semibold mx-6'>Let's talk social</h1>
+            <h1 className='text-7xl font-semibold mx-6'>
+               Let&apos;s talk social
+            </h1>
             <ObjectPlane />
-            <h1 className='text-7xl font-semibold mx-6'>Let's talk social</h1>
+            <h1 className='text-7xl font-semibold mx-6'>
+               Let&apos;s talk social
+            </h1>
             <ObjectPlane />
-            <h1 className='text-7xl font-semibold mx-6'>Let's talk social</h1>
+            <h1 className='text-7xl font-semibold mx-6'>
+               Let&apos;s talk social
+            </h1>
          </Marquee>
       </div>
    );

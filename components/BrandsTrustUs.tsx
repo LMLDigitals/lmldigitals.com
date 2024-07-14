@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from './Container';
+import Image from 'next/image';
 
 function BrandsTrustUs() {
    const logos = [
@@ -59,9 +60,11 @@ function BrandsTrustUs() {
                         className='flex shrink-0 animate-logo-cloud flex-row justify-around gap-6'
                      >
                         {logos.map((logo, key) => (
-                           <img
+                           <Image
                               key={key}
                               src={logo.url}
+                              width={0}
+                              height={0}
                               className='h-10 w-28 px-2 brightness-0  dark:invert'
                               alt={`${logo.name}`}
                            />

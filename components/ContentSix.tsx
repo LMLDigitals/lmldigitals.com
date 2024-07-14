@@ -23,7 +23,7 @@ function ContentSix() {
                </div>
                <div className='flex items-center gap-3'>
                   <Button className='h-11 w-56 transition-all  button-hover hover:bg-transparent hover:outline-8 hover:outline-double hover:outline-black '>
-                     <span className='text-lg'>Let's chat</span>
+                     <span className='text-lg'>Let&apos;s chat</span>
                   </Button>
                   <CircleArrowRight size={32} className='icon-hidden ' />
                </div>

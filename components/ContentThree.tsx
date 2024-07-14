@@ -47,13 +47,13 @@ function ContentThree() {
                   We Blend Creative and Performance
                </h1>
                <p className='md:text-center lg:text-start 2xl:w-3/4 leading-loose'>
-                  There aren't many creative agencies that understand
+                  There aren&apos;t many creative agencies that understand
                   performance and performance agencies that understand creative.
-                  This is where we're different. Whether we're helping to grow
-                  your Social communities, deliver performance-driven Paid
-                  Media, produce social-first Creative or Influencer campaigns -
-                  we craft strategies based on your brand, business and goals,
-                  all backed by data and insight.
+                  This is where we&apos;re different. Whether we&apos;re helping
+                  to grow your Social communities, deliver performance-driven
+                  Paid Media, produce social-first Creative or Influencer
+                  campaigns - we craft strategies based on your brand, business
+                  and goals, all backed by data and insight.
                </p>
 
                <div className='flex items-center gap-3'>

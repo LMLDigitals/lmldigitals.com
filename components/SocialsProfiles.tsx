@@ -36,7 +36,10 @@ function SocialsProfiles() {
    return (
       <div className='flex flex-col items-center gap-3 '>
          {SocialIcons.map((profile) => (
-            <div className='bg-red-500 p-2 rounded-full hover:scale-90 hover:duration-150 hover:delay-150 transition-all'>
+            <div
+               key={profile.id}
+               className='bg-red-500 p-2 rounded-full hover:scale-90 hover:duration-150 hover:delay-150 transition-all'
+            >
                <Link href={profile.link}>{profile.icon}</Link>
             </div>
          ))}

@@ -14,12 +14,12 @@ function AboutContentTwo() {
                <p className='text-sm md:text-base'>
                   We care about driving brand and business growth in everything
                   we do. This leads our thinking from the very start to ensure
-                  we're delivering work that not only provides growth but
+                  we&apos;re delivering work that not only provides growth but
                   future-proofs your brand as the digital industry continues to
-                  progress rapidly. If you're looking for a partner just to tick
-                  boxes, then we aren't the ones for you. But if you want a
-                  partner who'll push you, be innovative, and level up
-                  everything you do, then we could be the agency for you.
+                  progress rapidly. If you&apos;re looking for a partner just to
+                  tick boxes, then we aren&apos;t the ones for you. But if you
+                  want a partner who&apos;ll push you, be innovative, and level
+                  up everything you do, then we could be the agency for you.
                </p>
             </div>
             <Image

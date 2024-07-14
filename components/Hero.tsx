@@ -17,7 +17,7 @@ function Hero() {
                <h1 className='sm:text-4xl lg:text-4xl xl:text-5xl xl:w-full  2xl:text-6xl  2xl:w-10/12 leading-tight font-bold'>
                   The results-driven{' '}
                   <span className='text-red-500 '>Social first agency</span>{' '}
-                  you've been looking for
+                  you&apos;ve been looking for
                </h1>
 
                <div className='flex items-center gap-2'>
@@ -61,8 +61,8 @@ function MediumSizeHero() {
             <AnimatedLMLDigitalsBadge />
             <h1 className='sm:text-4xl  lg:text-4xl xl:text-5xl  2xl:text-6xl  2xl:w-3/4 leading-tight font-bold'>
                The results-driven{' '}
-               <span className='text-red-500 '>Social first agency</span> you've
-               been looking for
+               <span className='text-red-500 '>Social first agency</span>{' '}
+               you&apos;ve been looking for
             </h1>
 
             <div className='flex items-center'>
@@ -88,8 +88,8 @@ function MobileHeroSize() {
             <AnimatedLMLDigitalsBadge />
             <h1 className='text-3xl leading-tight font-bold text-center '>
                The results-driven{' '}
-               <span className='text-red-500 '>Social first agency</span> you've
-               been looking for
+               <span className='text-red-500 '>Social first agency</span>{' '}
+               you&apos;ve been looking for
             </h1>
 
             <div className='flex flex-col justify-center '>

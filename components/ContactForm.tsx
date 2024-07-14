@@ -77,7 +77,7 @@ export default function ContactForm() {
                <div className='md:flex items-center gap-5'>
                   <h1 className='text-4xl font-bold'>Hey there!</h1>
                   <h2 className='text-4xl font-bold text-red-500'>
-                     Let's chat
+                     Let&apos;s chat
                   </h2>
                </div>
             </div>
@@ -91,8 +91,8 @@ export default function ContactForm() {
                </p>
                <h3 className='text-xl font-semibold'>Hate Forms?</h3>
                <p>
-                  If you'd prefer to email us directly, send a message to one of
-                  our regional offices:
+                  If you&apos;d prefer to email us directly, send a message to
+                  one of our regional offices:
                </p>
                <p>
                   UK -{' '}

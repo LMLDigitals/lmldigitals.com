@@ -51,12 +51,12 @@ export function DirectionAwareHoverDemo() {
             <h1 className='text-4xl '>Seo Optimization</h1>
             <p className='w-1/3'>
                Search Engine Optimization (SEO) is the art and science of
-               increasing your website's visibility in search engine results
-               pages (SERPs). Our SEO specialists will work tirelessly to
-               optimize your website content, technical structure, and backlink
-               profile to improve your organic ranking and drive qualified
-               traffic to your site. This translates into increased brand
-               awareness, lead generation, and ultimately, more sales.
+               increasing your website&apos;s visibility in search engine
+               results pages (SERPs). Our SEO specialists will work tirelessly
+               to optimize your website content, technical structure, and
+               backlink profile to improve your organic ranking and drive
+               qualified traffic to your site. This translates into increased
+               brand awareness, lead generation, and ultimately, more sales.
             </p>
          </div>
       </div>
