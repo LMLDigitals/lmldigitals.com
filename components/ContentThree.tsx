@@ -19,6 +19,7 @@ function ContentThree() {
                width={600}
                height={600}
                alt='group_people'
+               loading='lazy'
                className='object-cover hover:scale-105 transition-all hover:duration-150 hover:delay-200 rounded-xl hidden xl:block'
             />
             <Image
@@ -26,6 +27,7 @@ function ContentThree() {
                width={500}
                height={500}
                alt='group_people'
+               loading='lazy'
                className='object-cover hover:scale-105 transition-all hover:duration-150 hover:delay-200 rounded-xl hidden md:block lg:hidden xl:hidden'
             />
             <Image
@@ -33,6 +35,7 @@ function ContentThree() {
                width={500}
                height={500}
                alt='group_people'
+               loading='lazy'
                className='object-cover hover:scale-105 transition-all hover:duration-150 hover:delay-200 rounded-xl hidden lg:block xl:hidden'
             />
             <Image
@@ -40,6 +43,7 @@ function ContentThree() {
                width={400}
                height={400}
                alt='group_people'
+               loading='lazy'
                className='object-cover hover:scale-105 transition-all hover:duration-150 hover:delay-200 rounded-xl   md:hidden lg:hidden xl:hidden'
             />
             <div className='flex flex-col items-center md:items-center lg:items-start gap-10'>

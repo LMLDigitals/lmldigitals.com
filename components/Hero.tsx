@@ -7,6 +7,7 @@ import Image from 'next/image';
 import mobileMockup from '@/public/mobileMockup.png';
 import SocialsProfiles from './SocialsProfiles';
 import VideoInMockup from './VideoInMockup';
+import Link from 'next/link';
 
 function Hero() {
    return (
@@ -21,16 +22,20 @@ function Hero() {
                </h1>
 
                <div className='flex items-center gap-2'>
-                  <Button className='h-11 w-56 transition-all hover:bg-red-500'>
-                     Browse Our Services
-                  </Button>
-                  <Button
-                     variant={'ghost'}
-                     className='hover:bg-transparent space-x-2 group'
-                  >
-                     <span>Meet our team</span>
-                     <MoveRight size={16} className='hover-move-right' />
-                  </Button>
+                  <Link href={`/services`}>
+                     <Button className='h-11 w-56 transition-all hover:bg-red-500'>
+                        Browse Our Services
+                     </Button>
+                  </Link>
+                  <Link href={`/about`}>
+                     <Button
+                        variant={'ghost'}
+                        className='hover:bg-transparent space-x-2 group'
+                     >
+                        <span>Meet our team</span>
+                        <MoveRight size={16} className='hover-move-right' />
+                     </Button>
+                  </Link>
                </div>
             </div>
 

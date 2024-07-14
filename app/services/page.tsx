@@ -1,18 +1,38 @@
-import React from 'react';
-import {
-   Card,
-   CardContent,
-   CardDescription,
-   CardFooter,
-   CardHeader,
-   CardTitle,
-} from '@/components/ui/card';
-import Image from 'next/image';
-import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card';
-import Link from 'next/link';
-import marketing from '@/public/marketing.jpg';
-import { TypewriterEffectSmooth } from '@/components/ui/typewriter-effect';
 import TypeWriterComponent from '@/components/TypeWriterComponent';
+import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card';
+import { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+
+export const metadata: Metadata = {
+   title: 'LML Digitals | Our services',
+   description:
+      'LML Digitals is a leading marketing and software development company dedicated to transforming businesses with innovative digital solutions.',
+   keywords:
+      'marketing, software development, digital solutions, business transformation, LML Digitals',
+   authors: [{ name: 'LML Digitals', url: 'https://www.lmldigitals.com' }],
+   viewport: 'width=device-width, initial-scale=1.0',
+   openGraph: {
+      title: 'LML Digitals | Marketing and Software Development',
+      description:
+         'Transform your business with innovative digital solutions from LML Digitals, a leader in marketing and software development.',
+      type: 'website',
+      url: 'https://www.lmldigitals.com',
+      images: [
+         {
+            url: '/app/opengraph-image.png',
+         },
+      ],
+   },
+   twitter: {
+      card: 'summary_large_image',
+      site: '@LMLDigitals',
+      title: 'LML Digitals | Marketing and Software Development',
+      description:
+         'Transform your business with innovative digital solutions from LML Digitals, a leader in marketing and software development.',
+      images: ['/images/twitter-image.jpg'],
+   },
+};
 
 function Services() {
    const ourServices = [

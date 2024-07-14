@@ -24,6 +24,7 @@ function Navbar() {
                   width={90}
                   height={90}
                   alt='logo'
+                  loading='lazy'
                   className='hover:scale-110 hover:delay-100 hover:duration-150 transition-all'
                />
             </Link>
