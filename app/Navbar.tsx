@@ -12,7 +12,7 @@ function Navbar() {
    const NavLink = [
       { id: 1, title: 'Our Services', link: '/services' },
       { id: 2, title: 'About Us', link: '/about' },
-      { id: 3, title: 'Blog', link: '/ourservices' },
+      // { id: 3, title: 'Blog', link: '/ourservices' },
    ];
    return (
       <>
@@ -21,15 +21,15 @@ function Navbar() {
             <Link href={'/'}>
                <Image
                   src={logo}
-                  width={90}
-                  height={90}
+                  width={70}
+                  height={70}
                   alt='logo'
                   loading='lazy'
                   className='hover:scale-110 hover:delay-100 hover:duration-150 transition-all'
                />
             </Link>
 
-            <ul className='hidden lg:flex lg:items-center lg:justify-evenly  lg:w-2/5  xl:w-1/3'>
+            <ul className='hidden lg:flex lg:items-center lg:justify-evenly  lg:w-1/2  xl:w-1/3 '>
                {NavLink.map((nav) => (
                   <Link href={nav.link} key={nav.id}>
                      <li className='underline-animation hover:underline-offset-1 hover:border-b hover:border-red-500'>

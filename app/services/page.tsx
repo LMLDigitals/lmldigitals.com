@@ -43,7 +43,7 @@ function Services() {
          description:
             'Boost your brand with targeted online marketing strategies.',
 
-         image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8RGlnaXRhbCUyMG1hcmtldGluZ3xlbnwwfHwwfHx8MA%3D%3D',
+         image: '/platforms.jpg',
       },
       {
          id: 2,
@@ -52,7 +52,7 @@ function Services() {
          description:
             'Innovative software solutions tailored to your business needs.',
 
-         image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c29mdHdhcmUlMjBkZXZlbG9wbWVudHxlbnwwfHwwfHx8MA%3D%3D',
+         image: '/development.jpg',
       },
    ];
 

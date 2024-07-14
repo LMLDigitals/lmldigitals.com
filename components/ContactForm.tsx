@@ -92,9 +92,12 @@ export default function ContactForm() {
                <h3 className='text-xl font-semibold'>Hate Forms?</h3>
                <p>
                   If you&apos;d prefer to email us directly, send a message to
-                  one of our regional offices:
+                  our{' '}
+                  <Link href='#' className='text-red-500'>
+                     sales@lmldigitals.com
+                  </Link>
                </p>
-               <p>
+               {/* <p>
                   UK -{' '}
                   <Link href='#' className='text-red-500'>
                      hello@thesocialshepherd.com
@@ -105,7 +108,7 @@ export default function ContactForm() {
                   <Link href='#' className='text-red-500'>
                      hi@thesocialshepherd.com
                   </Link>
-               </p>
+               </p> */}
             </div>
          </div>
          <div className='mt-10 md:mt-0 p-8 bg-red-500/5 rounded-lg shadow-md md:w-full lg:w-2/5'>
@@ -159,26 +162,24 @@ export default function ContactForm() {
                <div>
                   <p>Which region are you looking for support in?</p>
                   <div className='flex flex-wrap gap-4 mt-5'>
-                     {['UK', 'North America', 'Europe', 'Global'].map(
-                        (region) => (
-                           <Button
-                              key={region}
-                              type='button'
-                              variant='outline'
-                              className={
-                                 selectedRegion === region
-                                    ? 'bg-blue-500 text-white'
-                                    : ''
-                              }
-                              onClick={() => {
-                                 setSelectedRegion(region);
-                                 setValue('region', region);
-                              }}
-                           >
-                              {region}
-                           </Button>
-                        )
-                     )}
+                     {['North America', 'Europe', 'Africa'].map((region) => (
+                        <Button
+                           key={region}
+                           type='button'
+                           variant='outline'
+                           className={
+                              selectedRegion === region
+                                 ? 'bg-blue-500 text-white'
+                                 : ''
+                           }
+                           onClick={() => {
+                              setSelectedRegion(region);
+                              setValue('region', region);
+                           }}
+                        >
+                           {region}
+                        </Button>
+                     ))}
                      <input
                         type='hidden'
                         {...register('region', {
@@ -209,10 +210,12 @@ export default function ContactForm() {
                               <SelectValue placeholder='Choose a reason' />
                            </SelectTrigger>
                            <SelectContent>
-                              <SelectItem value='advertising'>
-                                 Advertising
+                              <SelectItem value='digitalMarketing'>
+                                 Digital Marketing
                               </SelectItem>
-                              <SelectItem value='support'>Support</SelectItem>
+                              <SelectItem value='softwareDevelopment'>
+                                 Software Development
+                              </SelectItem>
                               <SelectItem value='other'>Other</SelectItem>
                            </SelectContent>
                         </Select>
@@ -242,13 +245,13 @@ export default function ContactForm() {
                      newsletter?
                   </label>
                </div>
-               <p className='text-xs'>
+               {/* <p className='text-xs'>
                   By submitting this form I accept the{' '}
                   <Link href='#' className='text-red-500'>
                      Privacy Policy
                   </Link>{' '}
                   of this site.
-               </p>
+               </p> */}
                <Button type='submit' className='w-full'>
                   {isPending ? <Ellipsis /> : 'Send message'}
                </Button>

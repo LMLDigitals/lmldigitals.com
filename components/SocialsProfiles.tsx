@@ -1,8 +1,4 @@
-import React from 'react';
-import { Instagram } from 'lucide-react';
-import { Linkedin } from 'lucide-react';
-import { Facebook } from 'lucide-react';
-import { Twitter } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
 
 function SocialsProfiles() {
@@ -11,25 +7,25 @@ function SocialsProfiles() {
          id: 1,
          icon: <Instagram className='text-white  cursor-pointer' />,
          name: 'Instagram',
-         link: '/',
+         link: 'https://www.instagram.com/lmldigitals/',
       },
       {
          id: 2,
          icon: <Linkedin className='text-white cursor-pointer' />,
          name: 'LinkedIn',
-         link: '/',
+         link: 'https://www.linkedin.com/company/lml-digitals/about/?viewAsMember=true',
       },
       {
          id: 3,
          icon: <Facebook className='text-white  cursor-pointer' />,
          name: 'Facebook',
-         link: '/',
+         link: 'https://www.facebook.com/lmldigitals/',
       },
       {
          id: 4,
          icon: <Twitter className='text-white  cursor-pointer' />,
          name: 'Twitter',
-         link: '/',
+         link: 'https://x.com/lmldigitals',
       },
    ];
 
@@ -40,7 +36,9 @@ function SocialsProfiles() {
                key={profile.id}
                className='bg-red-500 p-2 rounded-full hover:scale-90 hover:duration-150 hover:delay-150 transition-all'
             >
-               <Link href={profile.link}>{profile.icon}</Link>
+               <Link href={profile.link} target='_blank'>
+                  {profile.icon}
+               </Link>
             </div>
          ))}
       </div>

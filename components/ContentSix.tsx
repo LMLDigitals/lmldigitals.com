@@ -13,13 +13,13 @@ function ContentSix() {
                <div className='flex flex-col items-center gap-4 lg:gap-6   xl:items-start'>
                   <WordPullUp
                      className='xl:text-5xl  font-bold tracking-[-0.02em] text-white dark:text-white text-3xl md:text-5xl lg:text-6xl 2xl:text-6xl md:leading-[4rem]'
-                     words={`Don't  be  sheepish`}
+                     words={`Don't be hesitate`}
                   />
 
-                  <SlightFlip
+                  {/* <SlightFlip
                      className='xl:text-5xl  font-bold tracking-[-0.1em] text-black dark:text-white text-3xl md:text-5xl lg:text-6xl  md:leading-[5rem]'
-                     word={`Let's Talk`}
-                  />
+                     word={`Let's Chat`}
+                  /> */}
                </div>
                <div className='flex items-center gap-3'>
                   <Button className='h-11 w-56 transition-all  button-hover hover:bg-transparent hover:outline-8 hover:outline-double hover:outline-black '>

@@ -45,21 +45,18 @@ function AboutContentOne() {
             />
             <div className='flex flex-col gap-4 w-full lg:w-1/3 px-4 lg:px-0'>
                <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-neutral-100'>
-                  We&lsquo;re made up of specialists, not{' '}
-                  <span className='text-red-500'>generalists</span>
+                  We’re Specialists, Not{' '}
+                  <span className='text-red-500'>Generalists</span>
                </h1>
                <p className='text-sm sm:text-base leading-loose'>
-                  Digital agencies that offer every service under the sun can
-                  struggle to have the expertise that your brand deserves. We
-                  decided early on that wasn&lsquo;t going to be us. We&lsquo;ve
-                  focused on what we&lsquo;re best at and what we love most from
-                  day 1. But, we take it one step further. For example, a Social
-                  Media Manager isn&lsquo;t someone who manages all organic,
-                  paid and influencer activity - but focuses on organic social,
-                  strategy and community management. That&lsquo;s why we have
-                  specialist teams for all of our services. This allows us to
-                  give you the perfect solution by creating a custom-built team
-                  for your exact needs and challenges.
+                  At LML Digitals, we prioritize expertise over quantity. By
+                  focusing exclusively on marketing and software development, we
+                  ensure that your brand receives the high-quality service it
+                  deserves. Our specialists are dedicated to their respective
+                  fields, from social media strategy to software engineering.
+                  This allows us to create custom-built teams tailored to your
+                  specific needs and challenges, providing you with the perfect
+                  solutions for your business growth.
                </p>
             </div>
          </div>

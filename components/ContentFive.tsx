@@ -8,19 +8,19 @@ function ContentFive() {
          <Marquee pauseOnHover className='[--duration:20s]'>
             <ObjectPlane />
             <h1 className='text-7xl font-semibold mx-6 '>
-               Let&apos;s talk social
+               Let&apos;s talk digitals
             </h1>
             <ObjectPlane />
             <h1 className='text-7xl font-semibold mx-6'>
-               Let&apos;s talk social
+               Let&apos;s talk digitals
             </h1>
             <ObjectPlane />
             <h1 className='text-7xl font-semibold mx-6'>
-               Let&apos;s talk social
+               Let&apos;s talk digitals
             </h1>
             <ObjectPlane />
             <h1 className='text-7xl font-semibold mx-6'>
-               Let&apos;s talk social
+               Let&apos;s talk digitals
             </h1>
          </Marquee>
       </div>
