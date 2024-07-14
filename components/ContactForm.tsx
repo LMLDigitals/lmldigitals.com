@@ -44,6 +44,7 @@ export default function ContactForm() {
    const [isPending, startTranisition] = useTransition();
 
    const [selectedRegion, setSelectedRegion] = useState<string>('');
+   const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
 
    const onSubmit: SubmitHandler<EmailInput> = (data) => {
       startTranisition(async () => {
@@ -51,10 +52,10 @@ export default function ContactForm() {
             const res = await axios.post('/api/sendEmails', data);
 
             if (res.status === 200) {
-               toast({
-                  title: 'Successfull',
-                  description: 'Email sent successfully',
-               });
+               setShowSuccessMessage(true);
+               setTimeout(() => {
+                  setShowSuccessMessage(false);
+               }, 6000); // Hide message after 6 seconds
                reset();
                setSelectedRegion('');
             }
@@ -251,6 +252,11 @@ export default function ContactForm() {
                <Button type='submit' className='w-full'>
                   {isPending ? <Ellipsis /> : 'Send message'}
                </Button>
+               {showSuccessMessage && (
+                  <p className='text-red-500 mt-2'>
+                     Thanks, we will get back to you soon.
+                  </p>
+               )}
             </form>
          </div>
       </div>
