@@ -11,10 +11,13 @@ import {
    SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/components/ui/use-toast';
+import axios from 'axios';
 import Link from 'next/link';
-import { SubmitHandler, useForm, Controller } from 'react-hook-form';
+import { useState, useTransition } from 'react';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Resend } from 'resend';
-import { useState } from 'react';
+import Ellipsis from './Loading';
 
 const resend = new Resend('re_BgBx7kRn_CKYLNRTYvAfEt5FEYxV8DMUH');
 
@@ -24,42 +27,47 @@ type EmailInput = {
    email: string;
    region: string;
    message: string;
+   reason: string;
    newsletter: boolean;
 };
 
 export default function ContactForm() {
+   const { toast } = useToast();
    const {
       register,
       handleSubmit,
       control,
+      reset,
       formState: { errors },
       setValue,
    } = useForm<EmailInput>();
+   const [isPending, startTranisition] = useTransition();
 
    const [selectedRegion, setSelectedRegion] = useState<string>('');
 
-   const onSubmit: SubmitHandler<EmailInput> = async (data) => {
-      try {
-         const response = await fetch('/api', {
-            method: 'POST',
-            headers: {
-               'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-         });
+   const onSubmit: SubmitHandler<EmailInput> = (data) => {
+      startTranisition(async () => {
+         try {
+            const res = await axios.post('/api/sendEmails', data);
 
-         if (response.ok) {
-            console.log('Email sent successfully');
-            // Handle success state or redirect
-         } else {
-            console.error('Failed to send email');
-            // Handle failure state
+            if (res.status === 200) {
+               toast({
+                  title: 'Successfull',
+                  description: 'Email sent successfully',
+               });
+               reset();
+               setSelectedRegion('');
+            }
+         } catch (error) {
+            console.error('Error sending email:', error);
+            toast({
+               title: 'Failed',
+               description: 'Email has not sent',
+            });
          }
-      } catch (error) {
-         console.error('Error sending email:', error);
-         // Handle error state
-      }
+      });
    };
+
    return (
       <div className='md:mx-20 flex flex-col xl:items-center lg:justify-center p-8 lg:flex-row mt-10 md:mt-0 lg:mt-20 xl:mt-16 2xl:mt-36'>
          <div className='md:p-8 space-y-6 md:w-full lg:w-1/2'>
@@ -154,6 +162,7 @@ export default function ContactForm() {
                         (region) => (
                            <Button
                               key={region}
+                              type='button'
                               variant='outline'
                               className={
                                  selectedRegion === region
@@ -181,14 +190,17 @@ export default function ContactForm() {
                      )}
                   </div>
                </div>
-               {/* <div className='relative'>
+               <div className='relative'>
                   <Controller
                      name='reason'
                      control={control}
                      defaultValue=''
-                     // rules={{ required: 'Reason is required' }}
+                     rules={{ required: true }}
                      render={({ field }) => (
-                        <Select {...field}>
+                        <Select
+                           onValueChange={field.onChange}
+                           value={field.value}
+                        >
                            <SelectTrigger
                               id='reason'
                               aria-label='Choose a reason'
@@ -208,7 +220,7 @@ export default function ContactForm() {
                   {errors.reason && (
                      <p className='text-red-500'>{errors.reason.message}</p>
                   )}
-               </div> */}
+               </div>
                <div className='relative'>
                   <MessageCircleIcon className='absolute top-2.5 left-3 h-5 w-5 text-gray-400' />
                   <Textarea
@@ -237,7 +249,7 @@ export default function ContactForm() {
                   of this site.
                </p>
                <Button type='submit' className='w-full'>
-                  Send Message
+                  {isPending ? <Ellipsis /> : 'Send message'}
                </Button>
             </form>
          </div>
