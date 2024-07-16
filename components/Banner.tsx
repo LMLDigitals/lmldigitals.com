@@ -49,13 +49,13 @@ export default function CollapsibleBanner({ type }: any) {
                   </Link>
                </div>
                <div className='flex flex-1 justify-end'>
-                  <button
+                  {/* <button
                      type='button'
                      onClick={() => setIsVisible(false)}
                      aria-label='Dismiss'
                   >
                      <CloseIcon className='h-5 w-5 text-white' />
-                  </button>
+                  </button> */}
                </div>
             </div>
          </div>

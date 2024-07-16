@@ -1,5 +1,6 @@
 import { TypewriterEffectSmooth } from '@/components/ui/typewriter-effect';
 import aboutGroup from '@/public/groupAbout.png';
+import aboutImageOne from '@/public/aboutImage1.jpg';
 import Image from 'next/image';
 
 function AboutContentOne() {
@@ -37,7 +38,7 @@ function AboutContentOne() {
 
          <div className='flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-16'>
             <Image
-               src={aboutGroup}
+               src={aboutImageOne}
                width={500}
                height={500}
                alt='about_image'

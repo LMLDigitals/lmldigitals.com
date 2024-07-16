@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import aboutImage from '@/public/aboutWhiteBoard.png';
+import aboutImageTwo from '@/public/aboutImageTwo.jpg';
 
 function AboutContentTwo() {
    return (
@@ -23,7 +24,7 @@ function AboutContentTwo() {
                </p>
             </div>
             <Image
-               src={aboutImage}
+               src={aboutImageTwo}
                width={500}
                height={500}
                alt='about_image'

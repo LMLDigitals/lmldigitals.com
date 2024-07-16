@@ -8,24 +8,21 @@ function Development() {
          title: 'Web Development',
          description:
             'At LML Digitals, we craft stunning and user-friendly websites that not only look great but also convert visitors into leads and customers. Our web development and design services encompass the entire process, from conceptualizing and designing a website that reflects your brand identity to developing a secure and scalable website that provides a seamless user experience across all devices. Whether you need a simple brochure website, a complex e-commerce platform, or a custom web application, we have the expertise to bring your vision to life.',
-         imageUrl:
-            'https://images.unsplash.com/photo-1663765970236-f2acfde22237?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+         imageUrl: '/webdev.jpg',
       },
       {
          id: 2,
          title: 'Mobile App Development',
          description:
             "In today's mobile-first world, a well-designed and functional mobile app is crucial for reaching your target audience and staying ahead of the competition. Our mobile app development team specializes in creating native apps for iOS and Android devices. We'll work closely with you to understand your specific needs and build an app that is not only visually appealing but also engaging, user-friendly, and optimized for performance.",
-         imageUrl:
-            'https://images.unsplash.com/photo-1663765970236-f2acfde22237?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+         imageUrl: '/mobiledev.png',
       },
       {
          id: 3,
          title: 'Software Maintenance',
          description:
             'Keeping your software applications up-to-date and functioning smoothly is essential for business continuity and security. Our software maintenance services ensure that your software remains stable, secure, and performs optimally. We offer a range of maintenance services, including bug fixes, security updates, performance optimization, and feature enhancements.',
-         imageUrl:
-            'https://images.unsplash.com/photo-1663765970236-f2acfde22237?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+         imageUrl: '/maintaince.jpg',
       },
    ];
 
