@@ -59,7 +59,7 @@ function Services() {
    return (
       <div className='mt-20'>
          <TypeWriterComponent />
-         <div className='flex items-center justify-center gap-28 h-96  mt-20'>
+         <div className='flex flex-col md:flex-row items-center justify-center  md:gap-28 md:h-96  md:mt-20 px-3 md:px-0'>
             {ourServices.map((service) => (
                <CardContainer key={service.id} className='inter-var'>
                   <CardBody className='bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  '>

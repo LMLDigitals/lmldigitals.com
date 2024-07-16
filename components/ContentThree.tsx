@@ -52,12 +52,12 @@ function ContentThree() {
                   Elevating Brands through Innovative Digital Strategies
                </h1>
                <p className='md:text-center lg:text-start 2xl:w-3/4 leading-loose'>
-                  We're dedicated to elevating brands through a unique blend of
-                  creativity and performance. From enhancing social engagement
-                  and maximizing paid media effectiveness to creating compelling
-                  influencer campaigns, our strategies are tailored to amplify
-                  your brand's impact, driven by deep insights and strategic
-                  foresight.
+                  We&apos;re dedicated to elevating brands through a unique
+                  blend of creativity and performance. From enhancing social
+                  engagement and maximizing paid media effectiveness to creating
+                  compelling influencer campaigns, our strategies are tailored
+                  to amplify your brand&apos;s impact, driven by deep insights
+                  and strategic foresight.
                </p>
 
                <Link href={'/services'}>

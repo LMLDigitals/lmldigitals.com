@@ -9,24 +9,21 @@ export function CardAnimated() {
          title: 'SEO Optimization',
          description:
             "Search Engine Optimization (SEO) is the art and science of increasing your website's visibility in search engine results pages (SERPs). Our SEO specialists will work tirelessly to optimize your website content, technical structure, and backlink profile to improve your organic ranking and drive qualified traffic to your site. This translates into increased brand awareness, lead generation, and ultimately, more sales.",
-         imageUrl:
-            'https://images.unsplash.com/photo-1663765970236-f2acfde22237?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+         imageUrl: '/seo.jpg',
       },
       {
          id: 2,
          title: 'Social Media Management',
          description:
             "Social media is a powerful tool for building brand awareness, engaging with your target audience, and driving traffic to your website. Our social media management services provide everything you need to establish a strong social media presence. We'll develop a comprehensive social media strategy, create engaging content, manage your social media accounts, and track and analyze your results.",
-         imageUrl:
-            'https://images.unsplash.com/photo-1663765970236-f2acfde22237?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+         imageUrl: '/socialMedia.jpg',
       },
       {
          id: 3,
          title: 'Email Marketing',
          description:
             "Email marketing remains one of the most effective digital marketing channels for nurturing leads, promoting your services, and building lasting customer relationships. Our email marketing specialists will help you develop and implement targeted email campaigns that drive results. We'll design engaging email templates, manage your email list, and track campaign performance so you can optimize your efforts for maximum impact.",
-         imageUrl:
-            'https://images.unsplash.com/photo-1663765970236-f2acfde22237?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+         imageUrl: '/email.jpg',
       },
    ];
 
