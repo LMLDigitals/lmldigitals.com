@@ -126,8 +126,8 @@ function MediumSizeNavBar({ NavLinks }: MobileSizeProps) {
             <Link href={'/'}>
                <Image
                   src={logo}
-                  width={90}
-                  height={90}
+                  width={50}
+                  height={50}
                   alt='logo'
                   className='hover:scale-110 hover:delay-100 hover:duration-150 transition-all'
                />
