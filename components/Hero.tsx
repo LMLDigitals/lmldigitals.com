@@ -72,16 +72,11 @@ function MediumSizeHero() {
             </h1>
 
             <div className='flex items-center'>
-               <Button className='h-11 w-56 transition-all hover:bg-red-500'>
-                  Browse Our Services
-               </Button>
-               <Button
-                  variant={'ghost'}
-                  className='hover:bg-transparent space-x-2 group'
-               >
-                  <span>Meet our team</span>
-                  <MoveRight size={16} className='hover-move-right' />
-               </Button>
+               <Link href={'/services'}>
+                  <Button className='h-11 w-56 transition-all hover:bg-red-500'>
+                     Browse Our Services
+                  </Button>
+               </Link>
             </div>
          </div>
       </div>
@@ -99,16 +94,11 @@ function MobileHeroSize() {
             </h1>
 
             <div className='flex flex-col justify-center '>
-               <Button className='h-11 w-56 transition-all hover:bg-red-500'>
-                  Browse Our Services
-               </Button>
-               <Button
-                  variant={'ghost'}
-                  className='hover:bg-transparent space-x-2 group'
-               >
-                  <span>Meet our team</span>
-                  <MoveRight size={16} className='hover-move-right' />
-               </Button>
+               <Link href={'/services'}>
+                  <Button className='h-11 w-56 transition-all hover:bg-red-500'>
+                     Browse Our Services
+                  </Button>
+               </Link>
             </div>
          </div>
          <div>
