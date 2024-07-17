@@ -63,12 +63,13 @@ function MediumSizeHero() {
 
             <SocialsProfiles />
          </div>
-         <div className='flex flex-col items-start gap-8'>
+         <div className='flex flex-col items-center gap-8'>
             <AnimatedLMLDigitalsBadge />
-            <h1 className='sm:text-4xl  lg:text-4xl xl:text-5xl  2xl:text-6xl  2xl:w-3/4 leading-tight font-bold'>
-               The results-driven{' '}
-               <span className='text-red-500 '>Social first agency</span>{' '}
-               you&apos;ve been looking for
+            <h1 className='sm:text-4xl  lg:text-4xl xl:text-5xl  2xl:text-6xl text-center lg:text-start  2xl:w-3/4 leading-tight font-bold'>
+               Transform your <span className='text-red-500'>business</span>{' '}
+               with our innovative digital marketing and software{' '}
+               <span className='text-red-500'>solutions</span>
+               <span className='text-yellow-500'>.</span>
             </h1>
 
             <div className='flex items-center'>
@@ -88,9 +89,10 @@ function MobileHeroSize() {
          <div className='flex flex-col items-center justify-center gap-8'>
             <AnimatedLMLDigitalsBadge />
             <h1 className='text-3xl leading-tight font-bold text-center '>
-               The results-driven{' '}
-               <span className='text-red-500 '>Social first agency</span>{' '}
-               you&apos;ve been looking for
+               Transform your <span className='text-red-500'>business</span>{' '}
+               with our innovative digital marketing and software{' '}
+               <span className='text-red-500'>solutions</span>
+               <span className='text-yellow-500'>.</span>
             </h1>
 
             <div className='flex flex-col justify-center '>
