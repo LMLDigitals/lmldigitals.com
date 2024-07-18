@@ -37,7 +37,7 @@ function ContentFour() {
       <div className='md:mt-20 lg:mt-28 flex flex-col items-center'>
          <div className='flex flex-col items-center text-center gap-4 '>
             <h1 className='text-5xl font-bold'>
-               What we <span className='text-red-500'>Do</span>
+               What We <span className='text-red-500'>Do</span>
             </h1>
             <p className='text-lg mx-4'>
                LML Digitals empowers your business to thrive with strategic,

@@ -14,7 +14,7 @@ function ContentSix() {
                <div className='flex flex-col items-center gap-4 lg:gap-6   xl:items-start'>
                   <WordPullUp
                      className='xl:text-5xl  font-bold tracking-[-0.02em] text-white dark:text-white text-3xl md:text-5xl lg:text-6xl 2xl:text-6xl md:leading-[4rem]'
-                     words={`Don't be hesitate`}
+                     words={`Don't hesitate`}
                   />
 
                   {/* <SlightFlip
