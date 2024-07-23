@@ -6,14 +6,14 @@ import ContentThree from '@/components/ContentThree';
 import Hero from '@/components/Hero';
 
 export default function Home() {
-   return (
-      <div className='flex flex-col gap-20'>
-         <Hero />
-         {/* <BrandsTrustUs /> */}
-         <ContentThree />
-         <ContentFour />
-         <ContentFive />
-         <ContentSix />
-      </div>
-   );
+  return (
+    <div className="flex flex-col gap-20">
+      <Hero />
+      <BrandsTrustUs />
+      <ContentThree />
+      <ContentFour />
+      <ContentFive />
+      <ContentSix />
+    </div>
+  );
 }

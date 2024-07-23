@@ -30,7 +30,7 @@ const pricingPlans = [
     features: [
       'Comprehensive on-page/off-page SEO, ongoing competitor analysis',
       'Detailed campaign management on Google Ads, Facebook Ads, Yelp Ads',
-      'Manage (YouTube,TikTok,Facebook,Instagram and Snapchat) with 3-4 weekly posts, community engagement',
+      'Manage (YouTube,TikTok,Facebook,Instagram and Snapchat)',
       'Produce 10-20 monthly blogs, videos, and images focused on auto repair',
       'Develop strategy with 8 segmented emails promoting services or promotions',
       'Claim/manage listings on Google My Business, Facebook, NextDoor, Yelp, Apple Business',
@@ -46,7 +46,7 @@ const pricingPlans = [
     features: [
       'Advanced on-page/off-page SEO, keyword research, local SEO enhancements',
       'Strategic campaign management across major platforms, customized ads, retargeting',
-      'Comprehensive management of (YouTube,Facebook,Instagram,TikTok,Snapchat,Reddit,LinkedIn) 5-7 weekly high-quality posts',
+      'Comprehensive management of (YouTube, Facebook, Instagram, TikTok, Snapchat, Reddit LinkedIn)',
       'Create 20-40 monthly blogs, videos, custom graphics on auto repair topics',
       'Personalized campaigns with 12 targeted emails/month, automated workflows',
       'Comprehensive management, claim listings (Google My Business, Facebook, NextDoor, Yelp, Apple Business,LinkedIn,Angies list,BBB)',
@@ -60,15 +60,14 @@ const Pricing = () => {
 
   const Heading = () => (
     <div className="relative z-10 my-12 flex flex-col items-center justify-center gap-4">
-      <div className="flex w-full flex-col items-start justify-center space-y-4 md:items-center">
-        <div className="mb-2 inline-block rounded-full bg-red-100 px-2 py-[0.20rem] text-xs font-medium uppercase text-red-500 dark:bg-red-200">
-          {' '}
+      <div className="flex w-full flex-col  items-center justify-center space-y-4 md:items-center text-center md:text-start">
+        <div className="mb-2 inline-block rounded-full text-center bg-red-100 px-2 py-[0.20rem] text-xs font-medium uppercase text-red-500 dark:bg-red-200">
           Pricing
         </div>
         <p className="mt-2 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl dark:text-gray-200">
           Fair pricing, unfair advantage.
         </p>
-        <p className="text-md max-w-xl text-gray-700 md:text-center dark:text-gray-300">
+        <p className="text-md max-w-xl text-gray-700 md:text-center dark:text-gray-300 px-3">
           Get started with LML today and take your business to the next level.
         </p>
       </div>
@@ -102,7 +101,7 @@ const Pricing = () => {
   );
 
   const PricingCards = () => (
-    <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-4 md:px-8">
+    <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-4 px-4 md:px-8">
       {pricingPlans.map((plan, index) => (
         <div
           key={index}
