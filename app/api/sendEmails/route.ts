@@ -5,7 +5,7 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API);
 
 export async function POST(request: any) {
-  const { name, email, message, phone, region, reason, newsletter } =
+  const { name, email, message, phone, reason, newsletter } =
     await request.json();
 
   try {
@@ -16,11 +16,12 @@ export async function POST(request: any) {
       subject: `Customer Email from: ${name}!`,
       html: `<p>Name: ${name}</p><p>Email: ${email}</p>
                   <p>Phone: ${phone}</p>
-                  <p>Region: ${region}</p>
                   <p>Reason: ${reason}</p>
                   <p>News Letter: ${newsletter}</p>
                 <p>Message: ${message}</p>`,
     });
+
+    console.log(emailResponse);
 
     return NextResponse.json('Email sent successfully.', { status: 200 });
   } catch (error) {

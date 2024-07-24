@@ -25,7 +25,6 @@ type EmailInput = {
   name: string;
   phone: string;
   email: string;
-  region: string;
   message: string;
   reason: string;
   newsletter: boolean;
@@ -43,7 +42,6 @@ export default function ContactForm() {
   } = useForm<EmailInput>();
   const [isPending, startTranisition] = useTransition();
 
-  const [selectedRegion, setSelectedRegion] = useState<string>('');
   const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
 
   const onSubmit: SubmitHandler<EmailInput> = (data) => {
@@ -57,7 +55,6 @@ export default function ContactForm() {
             setShowSuccessMessage(false);
           }, 6000); // Hide message after 6 seconds
           reset();
-          setSelectedRegion('');
         }
       } catch (error) {
         console.error('Error sending email:', error);
@@ -126,7 +123,7 @@ export default function ContactForm() {
             <div className="relative">
               <PhoneIcon className="absolute top-2.5 left-3 h-5 w-5 text-gray-400" />
               <Input
-                type="text"
+                type="number"
                 placeholder="Phone *"
                 className="pl-10"
                 {...register('phone', {
@@ -156,7 +153,7 @@ export default function ContactForm() {
               <p className="text-red-500">{errors.email.message}</p>
             )}
           </div>
-          <div>
+          {/* <div>
             <p>Which region are you looking for support in?</p>
             <div className="flex flex-wrap gap-4 mt-5">
               {['North America', 'Europe', 'Africa'].map((region) => (
@@ -186,7 +183,7 @@ export default function ContactForm() {
                 <p className="text-red-500">{errors.region.message}</p>
               )}
             </div>
-          </div>
+          </div> */}
           <div className="relative">
             <Controller
               name="reason"
