@@ -6,7 +6,7 @@ import { Button } from './ui/button';
 function Hero() {
   return (
     <>
-      <div className="lg:mt-10 2xl:mt-24  lg:mx-44 xl:mx-16 2xl:mx-72 lg:flex lg:items-center lg:justify-center hidden   transition-all">
+      <div className="lg:mt-10 2xl:mt-24  lg:mx-44 xl:mx-16  2xl:bg-transparent 2xl:mx-72 lg:flex lg:items-center lg:justify-center hidden   transition-all">
         <div className="flex flex-col items-start gap-8 w-full     ">
           <AnimatedLMLDigitalsBadge />
           <h1 className="sm:text-4xl lg:text-4xl xl:text-5xl xl:w-full 2xl:text-6xl  2xl:w-10/12 leading-tight font-bold">
