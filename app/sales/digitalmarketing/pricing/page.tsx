@@ -9,8 +9,8 @@ const pricingPlans = [
   {
     name: 'Basic',
     description: 'Start with essential tools to boost your online presence.',
-    monthlyPrice: 800,
-    annualPrice: 8650,
+    monthlyPrice: 500,
+    annualPrice: 5400,
     features: [
       'Basic on-page and local SEO for essential keywords and key listings',
       'Setup and manage limited campaigns on Google Ads, Meta Ads, Yelp Ads',
@@ -25,8 +25,8 @@ const pricingPlans = [
     name: 'Standard',
     description:
       'Unlock enhanced features and professional content to supercharge your business.',
-    monthlyPrice: 1500,
-    annualPrice: 16200,
+    monthlyPrice: 1000,
+    annualPrice: 10800,
     features: [
       'Comprehensive on-page/off-page SEO, ongoing competitor analysis',
       'Detailed campaign management on Google Ads, Facebook Ads, Yelp Ads',
@@ -41,8 +41,8 @@ const pricingPlans = [
     name: 'Premium',
     description:
       'Ultimate premium customization and dedicated support for enterprises.',
-    monthlyPrice: 3000,
-    annualPrice: 32400,
+    monthlyPrice: 2000,
+    annualPrice: 21600,
     features: [
       'Advanced on-page/off-page SEO, keyword research, local SEO enhancements',
       'Strategic campaign management across major platforms, customized ads, retargeting',
