@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
 //Todo: Initialize Resend instance with your API key from envi'ronment variable
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API);
+const resend = new Resend('re_fx16pzTN_GwytJifKawN5YjAxZ8sxXXxh');
 
 export async function POST(request: any) {
   const { name, email, message, phone, reason, newsletter } =

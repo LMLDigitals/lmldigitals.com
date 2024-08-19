@@ -1,69 +1,60 @@
-import React from 'react';
-import Container from './Container';
 import Image from 'next/image';
 
 function BrandsTrustUs() {
   const logos = [
-    {
-      name: 'Vercel',
-      url: '/fakeLogos/1.png',
-    },
+    // {
+    //   name: 'Vercel',
+    //   url: '/fakeLogos/t1.png',
+    // },
     {
       name: 'Nextjs',
-      url: '/fakeLogos/2.png',
+      url: '/fakeLogos/t2.png',
     },
     {
       name: 'Prime',
-      url: '/fakeLogos/3.png',
+      url: '/fakeLogos/t3.png',
     },
     {
       name: 'Trustpilot',
-      url: '/fakeLogos/4.png',
+      url: '/fakeLogos/yy5.png',
     },
     {
-      name: 'Webflow',
-      url: '/fakeLogos/5.png',
-    },
-
-    {
-      name: 'Airbnb',
-      url: '/fakeLogos/6.png',
-    },
-    {
-      name: 'Tina',
-      url: '/fakeLogos/7.png',
-    },
-    {
-      name: 'Stackoverflow',
-      url: '/fakeLogos/8.png',
+      name: 'Trustpilot',
+      url: '/fakeLogos/t4.png',
     },
   ];
+
   return (
-    <div className="w-full md:py-12">
+    <div className="w-full md:py-0">
       <div className="mx-auto w-full px-4 md:px-8">
         <div
-          className="group relative mt-6 flex gap-6 overflow-hidden p-2"
-          style={{
-            maskImage:
-              'linear-gradient(to left, transparent 0%, black 20%, black 80%, transparent 95%)',
-          }}
+          className="group relative mt-6 flex gap-6 overflow-hidden p-0"
+          // style={{
+          //   maskImage:
+          //     'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 95%)',
+          // }}
         >
-          {Array(4)
+          {Array(1)
             .fill(null)
-            .map((index) => (
+            .map((_, index) => (
               <div
                 key={index}
-                className="flex shrink-0 animate-logo-cloud flex-row justify-around gap-6"
+                className="flex  justify-center flex-row w-full gap-2"
               >
                 {logos.map((logo, key) => (
-                  <Image
+                  <div
                     key={key}
-                    src={logo.url}
-                    width={150}
-                    height={150}
-                    className=" px-2 brightness-0  dark:invert"
-                    alt={`${logo.name}`}
-                  />
+                    className="flex items-center justify-center p-2"
+                    style={{ width: 130, height: 130 }}
+                  >
+                    <Image
+                      src={logo.url}
+                      width={150}
+                      height={150}
+                      className="brightness-0"
+                      alt={`${logo.name}`}
+                    />
+                  </div>
                 ))}
               </div>
             ))}
