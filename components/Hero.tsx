@@ -35,7 +35,14 @@ function Hero() {
         </div>
 
         <div className="flex items-center gap-10">
-          <video className="xl:w-2/3 2xl:w-11/12 " autoPlay loop muted>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="xl:w-2/3 2xl:w-11/12 "
+          >
             <source src={'/video2.mp4'} type="video/mp4" />
           </video>
           <SocialsProfiles />
