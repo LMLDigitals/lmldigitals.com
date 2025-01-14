@@ -39,4 +39,3 @@ export async function deleteRole(id: string) {
     where: { id },
   })
 }
-

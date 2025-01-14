@@ -1,6 +1,11 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { Role } from '@prisma/client'
 
+type CreateRole = {
+  name: string
+  description: string
+}
+
 export function useRoles() {
   return useQuery<Role[]>({
     queryKey: ['roles'],
@@ -24,8 +29,8 @@ export function useStaffRoles() {
 export function useCreateRole() {
   const queryClient = useQueryClient()
 
-  return useMutation({
-    mutationFn: (data: { name: string; description: string }) =>
+  return useMutation<Role, Error, CreateRole>({
+    mutationFn: (data: CreateRole) =>
       fetch('/api/roles', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -1,19 +1,3 @@
-// import { NextResponse } from 'next/server'
-// import { prisma } from '@/lib/prisma'
-
-// export async function GET() {
-//   const roles = await prisma.role.findMany({
-//     where: {
-//       NOT: [
-//         { name: 'admin' },
-//         { name: 'customer' }
-//       ]
-//     },
-//     orderBy: { name: 'asc' },
-//   })
-//   return NextResponse.json(roles)
-// }
-
 import { NextResponse } from 'next/server'
 import { getNonAdminRoles } from '@/lib/role'
 

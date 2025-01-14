@@ -34,7 +34,7 @@ const UserNav = ({ user }: { user: User }) => {
             <span className="font-medium text-gray-900">{user.email?.toString()}</span>
           </div>
           <div className="px-4 py-2 text-xs text-gray-500">
-            Role: <span className="font-medium text-gray-900">{user.role?.toString()}</span>
+            Role: <span className="font-medium text-gray-900">{user.role?.name.toString()}</span>
           </div>
           <Link
             href="/dashboard/profile"

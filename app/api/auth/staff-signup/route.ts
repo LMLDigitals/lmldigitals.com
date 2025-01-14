@@ -37,7 +37,7 @@ export async function POST(req: Request) {
       where: { token },
     })
 
-    return NextResponse.json({ message: 'Staff user created successfully' }, { status: 201 })
+    return NextResponse.json({ message: 'Staff user created successfully', user }, { status: 201 })
   } catch (error) {
     console.error('Error in staff signup:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })

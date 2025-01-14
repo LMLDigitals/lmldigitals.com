@@ -1,5 +1,3 @@
-// import { getServerSession } from 'next-auth/next'
-// import { authOptions } from '@/lib/auth'
 import {auth} from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 
@@ -41,4 +39,3 @@ export async function isAuthorized(allowedRoles: string[]) {
   const user = await getUser()
   return user && allowedRoles.includes(user.role.name)
 }
-

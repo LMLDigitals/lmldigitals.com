@@ -222,8 +222,8 @@ function ManageRoles() {
             required
           />
         </div>
-        <Button type="submit" disabled={createRole.isLoading}>
-          {createRole.isLoading ? 'Creating...' : 'Create Role'}
+        <Button type="submit" disabled={createRole.status === 'pending'}>
+          {createRole.status === 'pending' ? 'Creating...' : 'Create Role'}
         </Button>
       </form>
 
@@ -244,9 +244,9 @@ function ManageRoles() {
                   variant="destructive"
                   size="sm"
                   onClick={() => handleDelete(role.id)}
-                  disabled={deleteRole.isLoading}
+                  disabled={deleteRole.status === 'pending'}
                 >
-                  {deleteRole.isLoading ? 'Deleting...' : 'Delete'}
+                  {deleteRole.status === 'pending' ? 'Deleting...' : 'Delete'}
                 </Button>
               )}
             </div>
