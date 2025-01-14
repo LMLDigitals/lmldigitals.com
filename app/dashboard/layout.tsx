@@ -68,7 +68,7 @@
 // }
 "use client";
 
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 import { useSession } from "next-auth/react";
@@ -102,35 +102,40 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
   return (
     <SidebarProvider>
-      <div className="flex h-screen">
+      <div className="flex h-screen w-full overflow-hidden">
         {/* Sidebar */}
         <AppSidebar
           user={user || { id: "", email: "", name: "", image: "", role: "" }}
         />
 
         {/* Main Content Area */}
-        <SidebarInset className="flex flex-col flex-1 overflow-hidden">
-          <header className="flex h-16 items-center gap-2 border-b px-4 bg-white dark:bg-gray-800 dark:border-gray-700">
-            <SidebarTrigger className="-ml-1" />
-            <Separator orientation="vertical" className="mr-2 h-4" />
+        <SidebarInset className="flex flex-col flex-1 w-0">
+          <header className="flex h-16 items-center gap-2 border-b px-4 bg-white dark:bg-gray-900 dark:border-gray-700 text-black dark:text-white">
+            <SidebarTrigger className="-ml-1 dark:text-white" />
+            <Separator
+              orientation="vertical"
+              className="mr-2 h-4 dark:text-white"
+            />
             <Breadcrumb>
               <BreadcrumbList>
                 {breadcrumbs.map((breadcrumb, index) => (
-                  <BreadcrumbItem key={breadcrumb.name}>
-                    <BreadcrumbLink href={breadcrumb.href}>
-                      {breadcrumb.name.charAt(0).toUpperCase() +
-                        breadcrumb.name.slice(1)}
-                    </BreadcrumbLink>
+                  <React.Fragment key={breadcrumb.name}>
+                    <BreadcrumbItem>
+                      <BreadcrumbLink href={breadcrumb.href}>
+                        {breadcrumb.name.charAt(0).toUpperCase() +
+                          breadcrumb.name.slice(1)}
+                      </BreadcrumbLink>
+                    </BreadcrumbItem>
                     {index < breadcrumbs.length - 1 && (
                       <BreadcrumbSeparator className="hidden md:block" />
                     )}
-                  </BreadcrumbItem>
+                  </React.Fragment>
                 ))}
               </BreadcrumbList>
             </Breadcrumb>
           </header>
-          <main className="flex-1 overflow-auto bg-gray-100 dark:bg-gray-900">
-            <div className="container mx-auto px-6 py-8">{children}</div>
+          <main className="flex-1 overflow-y-auto bg-gray-100 dark:bg-gray-900">
+            <div className="container h-full mx-auto px-6 py-8">{children}</div>
           </main>
         </SidebarInset>
       </div>

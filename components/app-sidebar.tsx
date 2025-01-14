@@ -58,7 +58,7 @@ export default function AppSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar> & { user: UserInterface }) {
   return (
-    <Sidebar {...props}>
+    <Sidebar className="dark:bg-red-700" {...props}>
       <SidebarHeader>
         <a href="/dashboard">
           <img src="/logo.png" alt="LML Logo" className="w-12 h-10" />
