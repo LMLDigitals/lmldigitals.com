@@ -14,7 +14,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { User, Users, Key, Settings, BarChart2 } from "lucide-react";
-import UserNav, {UserInterface} from "@/components/UserNav";
+import UserNav, { UserInterface } from "@/components/UserNav";
 
 const data = {
   navMain: [
@@ -53,11 +53,16 @@ const data = {
   ],
 };
 
-export default function AppSidebar({ user, ...props }: React.ComponentProps<typeof Sidebar> & { user: UserInterface }) {
+export default function AppSidebar({
+  user,
+  ...props
+}: React.ComponentProps<typeof Sidebar> & { user: UserInterface }) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <p className="font-bold text-4xl">LML</p>
+        <a href="/dashboard">
+          <img src="/logo.png" alt="LML Logo" className="w-12 h-10" />
+        </a>
       </SidebarHeader>
       <SidebarContent>
         {data.navMain.map((item) => (
@@ -82,7 +87,7 @@ export default function AppSidebar({ user, ...props }: React.ComponentProps<type
       </SidebarContent>
       <SidebarFooter className="p-4 border-t">
         <UserNav user={user} />
-        </SidebarFooter>
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );
