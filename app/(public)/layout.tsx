@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Footer from "../Footer";
 import "./globals.css";
-import Providers from "./providers";
+import Navbar from "../Navbar";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import Providers from "../providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,9 +47,28 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-        <main>{children}</main>
+          <main>
+            <Navbar />
+            {children}
+            <Footer />
+          </main>
         </Providers>
       </body>
+      {/* <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-DR17LYS00W"
+      ></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DR17LYS00W');
+            `,
+        }}
+      /> */}
+      <GoogleAnalytics />
     </html>
   );
 }
