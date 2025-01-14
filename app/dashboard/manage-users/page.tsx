@@ -40,60 +40,62 @@ const ManageUsers = () => {
   }
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-4">Manage Users</h2>
+    <div className="p-4 sm:p-6 lg:p-8">
+      <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Manage Users</h2>
       <div className="mb-8">
-        <h3 className="text-xl font-bold mb-2">Generate Staff Signup Link</h3>
-        <form onSubmit={generateStaffLink} className="flex items-center space-x-2">
-          <input
-            type="email"
-            value={staffEmail}
-            onChange={(e) => setStaffEmail(e.target.value)}
-            placeholder="Staff email"
-            required
-            className="flex-grow px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-          />
-          <button
-            type="submit"
-            className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Generate Link
-          </button>
-        </form>
-        {signupLink && (
-          <div className="mt-2">
-            <p className="text-sm font-medium text-gray-700">Staff Signup Link:</p>
-            <p className="text-sm text-gray-500 break-all">{signupLink}</p>
-          </div>
-        )}
+      <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Generate Staff Signup Link</h3>
+      <form onSubmit={generateStaffLink} className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
+        <input
+        type="email"
+        value={staffEmail}
+        onChange={(e) => setStaffEmail(e.target.value)}
+        placeholder="Staff email"
+        required
+        className="flex-grow px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-gray-100"
+        />
+        <button
+        type="submit"
+        className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+        Generate Link
+        </button>
+      </form>
+      {signupLink && (
+        <div className="mt-2">
+        <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Staff Signup Link:</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400 break-all">{signupLink}</p>
+        </div>
+      )}
       </div>
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
-          <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-          </tr>
+      <div className="overflow-x-auto">
+      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <thead className="bg-gray-50 dark:bg-gray-800">
+        <tr>
+          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Name</th>
+          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Email</th>
+          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Role</th>
+          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
+        </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
-          {users.map((user: any) => (
-            <tr key={user.id}>
-              <td className="px-6 py-4 whitespace-nowrap">{user.name}</td>
-              <td className="px-6 py-4 whitespace-nowrap">{user.email}</td>
-              <td className="px-6 py-4 whitespace-nowrap">{user.role.name}</td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <button
-                  onClick={() => deleteUser(user.id)}
-                  className="text-red-600 hover:text-red-900"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
+        <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+        {users.map((user: any) => (
+          <tr key={user.id}>
+          <td className="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">{user.name}</td>
+          <td className="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">{user.email}</td>
+          <td className="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">{user.role.name}</td>
+          <td className="px-6 py-4 whitespace-nowrap">
+            <button
+            onClick={() => deleteUser(user.id)}
+            className="text-red-600 dark:text-red-400 hover:text-red-900 dark:hover:text-red-600"
+            >
+            Delete
+            </button>
+          </td>
+          </tr>
+        ))}
         </tbody>
       </table>
+      </div>
     </div>
   )
 }
