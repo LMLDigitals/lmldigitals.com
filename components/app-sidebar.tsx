@@ -85,7 +85,7 @@ export default function AppSidebar({
           </SidebarGroup>
         ))}
       </SidebarContent>
-      <SidebarFooter className="p-4 border-t">
+      <SidebarFooter >
         <UserNav user={user} />
       </SidebarFooter>
       <SidebarRail />
