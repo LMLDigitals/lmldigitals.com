@@ -1,38 +1,58 @@
-'use client'
+"use client";
 
-import { CreditCard, LogOut, PlusCircle, Settings, User } from 'lucide-react'
-import { useSession, signOut } from "next-auth/react"
-
-import { Button } from "@/components/ui/button"
+import {
+  CreditCard,
+  Laptop,
+  LogOut,
+  Moon,
+  PlusCircle,
+  Settings,
+  Sun,
+  User,
+} from "lucide-react";
+import { useSession, signOut } from "next-auth/react";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuPortal,
   DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export interface UserInterface {
-  name?: string | null
-  email?: string | null
-  role?: string | null
+  name?: string | null;
+  email?: string | null;
+  role?: string | null;
 }
 
 export default function UserNav({ user }: { user: UserInterface }) {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
+  const { setTheme } = useTheme();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-12 w-full justify-start gap-4 px-4 md:w-[256px]">
+        <Button
+          variant="ghost"
+          className="relative h-12 w-full justify-start gap-4 px-4 md:w-[256px]"
+        >
           <Avatar className="h-8 w-8 rounded">
-            <AvatarImage src={`https://ui-avatars.com/api/?name=${user.name}&background=random`} alt={user.name || ''} />
+            <AvatarImage
+              src={`https://ui-avatars.com/api/?name=${user.name}&background=random`}
+              alt={user.name || ""}
+            />
             <AvatarFallback>{user.name?.charAt(0)}</AvatarFallback>
           </Avatar>
-          <div className="flex flex-col items-start gap-1 overflow-hidden">
+          <div className="flex flex-col items-start gap-1 justify-start overflow-hidden">
             <p className="text-sm font-medium leading-none truncate w-full">
               {user.name}
             </p>
@@ -42,9 +62,14 @@ export default function UserNav({ user }: { user: UserInterface }) {
           </div>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end" side="right" sideOffset={8}>
+      <DropdownMenuContent
+        className="w-56"
+        align="end"
+        side="right"
+        sideOffset={8}
+      >
         <DropdownMenuLabel className="font-normal">
-          <div className="flex flex-col space-y-1">
+          <div className="flex flex-col space-y-1 ">
             <p className="text-sm font-medium leading-none">{user.name}</p>
             <p className="text-xs leading-none text-muted-foreground">
               {user.email}
@@ -71,22 +96,36 @@ export default function UserNav({ user }: { user: UserInterface }) {
             <span>Settings</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
-        {session?.user?.role !== 'admin' && (
-          <>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <PlusCircle className="mr-2 h-4 w-4" />
-              <span>Upgrade to Pro</span>
-            </DropdownMenuItem>
-          </>
-        )}
+        <DropdownMenuSeparator />
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger>
+            <Sun className="mr-2 h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute mr-2 h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <span>Theme</span>
+          </DropdownMenuSubTrigger>
+          <DropdownMenuPortal>
+            <DropdownMenuSubContent>
+              <DropdownMenuItem onClick={() => setTheme("light")}>
+                <Sun className="mr-2 h-4 w-4" />
+                <span>Light</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dark")}>
+                <Moon className="mr-2 h-4 w-4" />
+                <span>Dark</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("system")}>
+                <Laptop className="mr-2 h-4 w-4" />
+                <span>System</span>
+              </DropdownMenuItem>
+            </DropdownMenuSubContent>
+          </DropdownMenuPortal>
+        </DropdownMenuSub>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => signOut()}>
           <LogOut className="mr-2 h-4 w-4" />
           <span>Log out</span>
-        </DropdownMenuItem>        
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
-

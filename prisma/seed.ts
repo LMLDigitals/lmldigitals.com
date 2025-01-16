@@ -8,19 +8,28 @@ async function main() {
   const adminRole = await prisma.role.upsert({
     where: { name: 'admin' },
     update: {},
-    create: { name: 'admin' },
+    create: { 
+      name: 'admin',
+      description: 'Administrator'
+    },
   })
 
   const staffRole = await prisma.role.upsert({
     where: { name: 'staff' },
     update: {},
-    create: { name: 'staff' },
+    create: { 
+      name: 'staff',
+      description: 'Staff'
+    },
   })
 
   const customerRole = await prisma.role.upsert({
     where: { name: 'customer' },
     update: {},
-    create: { name: 'customer' },
+    create: { 
+      name: 'customer',
+      description: 'Customer'
+    },
   })
 
   // Create admin user
@@ -47,4 +56,3 @@ main()
   .finally(async () => {
     await prisma.$disconnect()
   })
-

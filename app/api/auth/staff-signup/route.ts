@@ -4,14 +4,23 @@ import { prisma } from '@/lib/prisma'
 
 export async function POST(req: Request) {
   try {
-    const { name, email, password, role, token } = await req.json()
+    const { name, email, password, token } = await req.json()
 
-    const verificationToken = await prisma.verificationToken.findUnique({
-      where: { token },
+    const invitation = await prisma.staffInvitation.findUnique({
+      where: { 
+        token,
+        used: false,
+        expiresAt: {gt: new Date()}
+      },
+      include: { role: true }
     })
 
-    if (!verificationToken || verificationToken.expires < new Date()) {
-      return NextResponse.json({ error: 'Invalid or expired token' }, { status: 400 })
+    if (!invitation || invitation.expiresAt < new Date()) {
+      return NextResponse.json({ error: 'Invalid or expired invitation' }, { status: 400 })
+    }
+
+    if (invitation.email !== email) {
+      return NextResponse.json({ error: 'Email does not match invitation' }, { status: 400 })
     }
 
     const existingUser = await prisma.user.findUnique({
@@ -29,12 +38,14 @@ export async function POST(req: Request) {
         name,
         email,
         password: hashedPassword,
-        roleId: role,
+        roleId: invitation.roleId,
       },
     })
 
-    await prisma.verificationToken.delete({
-      where: { token },
+    // Mark invitation as used
+    await prisma.staffInvitation.update({
+      where: { id: invitation.id },
+      data: { used: true }
     })
 
     return NextResponse.json({ message: 'Staff user created successfully', user }, { status: 201 })
@@ -43,3 +54,4 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
+

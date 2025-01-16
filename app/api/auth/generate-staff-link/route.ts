@@ -8,16 +8,17 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
   try {
-    const { email } = await req.json()
+    const { email, roleId } = await req.json()
 
     const token = crypto.randomBytes(32).toString('hex')
     const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000) // 24 hours from now
 
-    await prisma.verificationToken.create({
+    await prisma.staffInvitation.create({
       data: {
-        identifier: email,
+        email,
         token,
-        expires: expiresAt,
+        roleId,
+        expiresAt,
       },
     })
 

@@ -8,28 +8,28 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String          @id @default(cuid())
   name          String?
-  email         String    @unique
+  email         String          @unique
   password      String
-  role          Role      @relation(fields: [roleId], references: [id])
+  role          Role            @relation(fields: [roleId], references: [id])
   roleId        String
   accounts      Account[]
   sessions      Session[]
   // Optional for WebAuthn support
   Authenticator Authenticator[]
-  
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Role {
-  id            String    @id @default(cuid())
-  name          String    @unique
-  description   String?
-  users         User[]
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  users       User[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   StaffInvitation StaffInvitation[]
 }
@@ -49,10 +49,10 @@ model Account {
   session_state            String?
   refresh_token_expires_in Int?
   user                     User?   @relation(fields: [userId], references: [id])
- 
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
- 
+
   @@unique([provider, providerAccountId])
   @@index([userId])
 }
@@ -63,10 +63,10 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id])
- 
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
- 
+
   @@index([userId])
 }
 
@@ -85,6 +85,7 @@ model StaffInvitation {
   expiresAt DateTime
   roleId    String
   role      Role     @relation(fields: [roleId], references: [id])
+  used      Boolean  @default(false)
 
   @@index([roleId])
 }
@@ -98,9 +99,8 @@ model Authenticator {
   credentialDeviceType String
   credentialBackedUp   Boolean
   transports           String?
- 
+
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
- 
+
   @@id([userId, credentialID])
 }
-
