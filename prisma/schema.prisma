@@ -7,13 +7,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Staff {
   id            String          @id @default(cuid())
-  name          String?
+  name          String
   email         String          @unique
   password      String
+  number        String
+  location      String
   role          Role            @relation(fields: [roleId], references: [id])
   roleId        String
+  jobTitle      String          @default("technician")
   accounts      Account[]
   sessions      Session[]
   // Optional for WebAuthn support
@@ -21,34 +24,67 @@ model User {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([roleId])
+}
+
+model Customer {
+  id              String          @id @default(cuid())
+  name            String
+  email           String          @unique
+  password        String
+  number          String
+  address         String?
+  city            String?
+  state           String?
+  zip             String?
+  location        String
+  referralCode    String          @unique
+  pendingDiscount Int             @default(0)
+  role            Role            @relation(fields: [roleId], references: [id])
+  roleId          String
+  jobTitle        String          @default("customer")
+  accounts        Account[]
+  sessions        Session[]
+  rewards         Reward[]
+  referedBy       String?
+  // Optional for WebAuthn support
+  Authenticator   Authenticator[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([roleId])
 }
 
 model Role {
   id          String   @id @default(cuid())
   name        String   @unique
   description String?
-  users       User[]
+  staff       Staff[]
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
   StaffInvitation StaffInvitation[]
+  Customer        Customer[]
 }
 
 model Account {
-  id                       String  @id @default(cuid())
-  userId                   String  @unique
+  id                       String    @id @default(cuid())
+  userId                   String    @unique
   type                     String
   provider                 String
   providerAccountId        String
-  refresh_token            String? @db.Text
-  access_token             String? @db.Text
+  refresh_token            String?   @db.Text
+  access_token             String?   @db.Text
   expires_at               Int?
   token_type               String?
   scope                    String?
-  id_token                 String? @db.Text
+  id_token                 String?   @db.Text
   session_state            String?
   refresh_token_expires_in Int?
-  user                     User?   @relation(fields: [userId], references: [id])
+  staff                    Staff?    @relation(fields: [userId], references: [id], onDelete: Cascade, map: "Account_staff_userId_fkey")
+  customer                 Customer? @relation(fields: [userId], references: [id], onDelete: Cascade, map: "Account_customer_userId_fkey")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -58,24 +94,17 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
+  id           String    @id @default(cuid())
+  sessionToken String    @unique
   userId       String
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id])
+  staff        Staff?    @relation(fields: [userId], references: [id], onDelete: Cascade, map: "Session_staff_userId_fkey")
+  customer     Customer? @relation(fields: [userId], references: [id], onDelete: Cascade, map: "Session_customer_userId_fkey")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([userId])
-}
-
-model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
-
-  @@unique([identifier, token])
 }
 
 model StaffInvitation {
@@ -86,6 +115,9 @@ model StaffInvitation {
   roleId    String
   role      Role     @relation(fields: [roleId], references: [id])
   used      Boolean  @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([roleId])
 }
@@ -100,7 +132,23 @@ model Authenticator {
   credentialBackedUp   Boolean
   transports           String?
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  staff    Staff?    @relation(fields: [userId], references: [id], onDelete: Cascade, map: "Authenticator_staff_userId_fkey")
+  customer Customer? @relation(fields: [userId], references: [id], onDelete: Cascade, map: "Authenticator_customer_userId_fkey")
 
   @@id([userId, credentialID])
+}
+
+model Reward {
+  id          String  @id @default(cuid())
+  customerId  String
+  amount      Int
+  description String?
+  redeemed    Boolean @default(false)
+
+  customer Customer @relation(fields: [customerId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([customerId])
 }

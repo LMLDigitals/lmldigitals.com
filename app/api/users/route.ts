@@ -7,7 +7,7 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const users = await prisma.user.findMany({
+  const users = await prisma.staff.findMany({
     include: { role: true },
   })
 

@@ -38,6 +38,7 @@ export default function UserNav({ user }: { user: UserInterface }) {
   const { data: session } = useSession();
   const { setTheme } = useTheme();
 
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

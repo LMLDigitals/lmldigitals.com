@@ -4,13 +4,13 @@ import { prisma } from '@/lib/prisma'
 
 export async function POST(req: Request) {
   try {
-    const { name, email, password, token } = await req.json()
+    const { name, email, password, token, number, location, jobTitle } = await req.json()
 
     const invitation = await prisma.staffInvitation.findUnique({
-      where: { 
+      where: {
         token,
         used: false,
-        expiresAt: {gt: new Date()}
+        expiresAt: { gt: new Date() }
       },
       include: { role: true }
     })
@@ -23,22 +23,26 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Email does not match invitation' }, { status: 400 })
     }
 
-    const existingUser = await prisma.user.findUnique({
+    const existingStaff = await prisma.staff.findUnique({
       where: { email },
     })
 
-    if (existingUser) {
+    if (existingStaff) {
       return NextResponse.json({ error: 'Email already exists' }, { status: 400 })
     }
 
     const hashedPassword = await bcrypt.hash(password, 10)
 
-    const user = await prisma.user.create({
+    const user = await prisma.staff.create({
       data: {
         name,
         email,
         password: hashedPassword,
         roleId: invitation.roleId,
+        // role: invitation.role.name,
+        number,
+        location: location.toString(),
+        jobTitle,
       },
     })
 

@@ -37,7 +37,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       <div className="flex h-screen w-full overflow-hidden">
         {/* Sidebar */}
         <AppSidebar
-          user={user || { id: "", email: "", name: "", image: "", role: "" }}
+          user={user as any}
         />
 
         {/* Main Content Area */}

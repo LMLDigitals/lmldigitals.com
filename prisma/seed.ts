@@ -10,7 +10,7 @@ async function main() {
     update: {},
     create: { 
       name: 'admin',
-      description: 'Administrator'
+      description: 'Administrator with full access'
     },
   })
 
@@ -19,7 +19,7 @@ async function main() {
     update: {},
     create: { 
       name: 'staff',
-      description: 'Staff'
+      description: 'Staff member with limited access'
     },
   })
 
@@ -28,20 +28,24 @@ async function main() {
     update: {},
     create: { 
       name: 'customer',
-      description: 'Customer'
+      description: 'Customer with access to their own data'
     },
   })
 
   // Create admin user
   const adminPassword = await bcrypt.hash('password123', 10)
-  const admin = await prisma.user.upsert({
-    where: { email: 'admin@example.com' },
+  const admin = await prisma.staff.upsert({
+    where: { email: 'admin@lmlrepair.com' },
     update: {},
     create: {
       email: 'admin@lmlrepair.com',
       name: 'Admin User',
       password: adminPassword,
-      roleId: adminRole.id,
+      number: '1234567890', // Add a valid number
+      location: 'kenya', // Add a valid location
+      role: {
+        connect: { id: adminRole.id }
+      },
     },
   })
 

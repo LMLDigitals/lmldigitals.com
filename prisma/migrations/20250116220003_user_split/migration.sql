@@ -1,14 +1,44 @@
 -- CreateTable
-CREATE TABLE `User` (
+CREATE TABLE `Staff` (
     `id` VARCHAR(191) NOT NULL,
-    `name` VARCHAR(191) NULL,
+    `name` VARCHAR(191) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
     `password` VARCHAR(191) NOT NULL,
+    `number` VARCHAR(191) NOT NULL,
+    `location` VARCHAR(191) NOT NULL,
     `roleId` VARCHAR(191) NOT NULL,
+    `jobTitle` VARCHAR(191) NOT NULL DEFAULT 'technician',
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
 
-    UNIQUE INDEX `User_email_key`(`email`),
+    UNIQUE INDEX `Staff_email_key`(`email`),
+    INDEX `Staff_roleId_idx`(`roleId`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Customer` (
+    `id` VARCHAR(191) NOT NULL,
+    `name` VARCHAR(191) NOT NULL,
+    `email` VARCHAR(191) NOT NULL,
+    `password` VARCHAR(191) NOT NULL,
+    `number` VARCHAR(191) NOT NULL,
+    `address` VARCHAR(191) NULL,
+    `city` VARCHAR(191) NULL,
+    `state` VARCHAR(191) NULL,
+    `zip` VARCHAR(191) NULL,
+    `location` VARCHAR(191) NOT NULL,
+    `referralCode` VARCHAR(191) NOT NULL,
+    `pendingDiscount` INTEGER NOT NULL DEFAULT 0,
+    `roleId` VARCHAR(191) NOT NULL,
+    `jobTitle` VARCHAR(191) NOT NULL DEFAULT 'customer',
+    `referedBy` VARCHAR(191) NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
+
+    UNIQUE INDEX `Customer_email_key`(`email`),
+    UNIQUE INDEX `Customer_referralCode_key`(`referralCode`),
+    INDEX `Customer_roleId_idx`(`roleId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -63,22 +93,15 @@ CREATE TABLE `Session` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `VerificationToken` (
-    `identifier` VARCHAR(191) NOT NULL,
-    `token` VARCHAR(191) NOT NULL,
-    `expires` DATETIME(3) NOT NULL,
-
-    UNIQUE INDEX `VerificationToken_token_key`(`token`),
-    UNIQUE INDEX `VerificationToken_identifier_token_key`(`identifier`, `token`)
-) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
--- CreateTable
 CREATE TABLE `StaffInvitation` (
     `id` VARCHAR(191) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
     `token` VARCHAR(191) NOT NULL,
     `expiresAt` DATETIME(3) NOT NULL,
     `roleId` VARCHAR(191) NOT NULL,
+    `used` BOOLEAN NOT NULL DEFAULT false,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
 
     UNIQUE INDEX `StaffInvitation_email_key`(`email`),
     UNIQUE INDEX `StaffInvitation_token_key`(`token`),
@@ -101,17 +124,46 @@ CREATE TABLE `Authenticator` (
     PRIMARY KEY (`userId`, `credentialID`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- AddForeignKey
-ALTER TABLE `User` ADD CONSTRAINT `User_roleId_fkey` FOREIGN KEY (`roleId`) REFERENCES `Role`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+-- CreateTable
+CREATE TABLE `Reward` (
+    `id` VARCHAR(191) NOT NULL,
+    `customerId` VARCHAR(191) NOT NULL,
+    `amount` INTEGER NOT NULL,
+    `description` VARCHAR(191) NULL,
+    `redeemed` BOOLEAN NOT NULL DEFAULT false,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
+
+    INDEX `Reward_customerId_idx`(`customerId`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey
-ALTER TABLE `Account` ADD CONSTRAINT `Account_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `Staff` ADD CONSTRAINT `Staff_roleId_fkey` FOREIGN KEY (`roleId`) REFERENCES `Role`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Session` ADD CONSTRAINT `Session_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `Customer` ADD CONSTRAINT `Customer_roleId_fkey` FOREIGN KEY (`roleId`) REFERENCES `Role`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Account` ADD CONSTRAINT `Account_staff_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `Staff`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Account` ADD CONSTRAINT `Account_customer_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `Customer`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Session` ADD CONSTRAINT `Session_staff_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `Staff`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Session` ADD CONSTRAINT `Session_customer_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `Customer`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `StaffInvitation` ADD CONSTRAINT `StaffInvitation_roleId_fkey` FOREIGN KEY (`roleId`) REFERENCES `Role`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Authenticator` ADD CONSTRAINT `Authenticator_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Authenticator` ADD CONSTRAINT `Authenticator_staff_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `Staff`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Authenticator` ADD CONSTRAINT `Authenticator_customer_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `Customer`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Reward` ADD CONSTRAINT `Reward_customerId_fkey` FOREIGN KEY (`customerId`) REFERENCES `Customer`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
